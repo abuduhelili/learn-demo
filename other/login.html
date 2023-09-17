@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登录页面</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #333;
+      }
+
+      form {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+      }
+
+      button[type="submit"] {
+        float: none;
+        background-color: #008cba;
+      }
+
+      .register {
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .register a {
+        color: #008cba;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>登录</h1>
+    <form>
+      <label for="username">用户名</label>
+      <input type="text" id="username" name="username" required />
+      <label for="password">密码</label>
+      <input type="password" id="password" name="password" required />
+      <button type="submit">确定</button>
+    </form>
+
+    <div class="register">没有账号？<a href="#">点击注册</a></div>
+  </body>
+</html>
