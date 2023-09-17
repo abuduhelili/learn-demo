@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 id="title">Test1</h1>
+        <p id="description">my test1 in freeCodeCamp!</p>
+      </div>
+
+      <form action="#" id="survey-form">
+        <div class="item">
+          <label for="name" id="name-label">Name</label>
+          <input type="text" id="name" placeholder="请输入用户名" required />
+        </div>
+
+        <div class="item">
+          <label for="email" id="email-label">Email</label>
+          <input type="email" id="email" placeholder="请输入邮箱" required />
+        </div>
+
+        <div class="item">
+          <label for="number" id="number-label">Age</label>
+          <input type="number" id="number" max="100" min="18" placeholder="请输入年龄" />
+        </div>
+
+        <div class="item">
+          <label for="dropdown">City</label>
+          <select name="city" id="dropdown">
+            <option value="">请选择城市</option>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="深圳">深圳</option>
+          </select>
+        </div>
+
+        <div class="item">
+          <label for="gender">Gender</label>
+          <div class="radio-group">
+            <input type="radio" name="gender" id="male" value="male" />
+            <label for="male">male</label>
+            <input type="radio" name="gender" id="female" value="female" />
+            <label for="female">female</label>
+          </div>
+        </div>
+
+        <div class="item">
+          <label for="checkbox">Favorite Colors</label>
+          <div class="checkbox-group">
+            <input type="checkbox" name="checkbox" id="checkbox1" value="red" />
+            <label for="checkbox1">Red</label>
+            <input type="checkbox" name="checkbox" id="checkbox2" value="blue" />
+            <label for="checkbox2">Blue</label>
+            <input type="checkbox" name="checkbox" id="checkbox3" value="green" />
+            <label for="checkbox3">Green</label>
+          </div>
+        </div>
+
+        <div class="item">
+          <p>Your Comments</p>
+          <textarea name="comments" id="comment" cols="50" rows="5"></textarea>
+        </div>
+
+        <div class="item">
+          <!-- submit按钮 -->
+          <input type="submit" value="Submit" id="submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

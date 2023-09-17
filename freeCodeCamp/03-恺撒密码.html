@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // A-Z:65-90
+  // a-z:97-122
+  function rot13(str) {
+    let Str = "";
+    for (let i = 0; i < str.length; i++) {
+      let code = str.charCodeAt(i);
+      if (code >= 65 && code <= 90) {
+        code += 13;
+        if (code > 90) {
+          code -= 26;
+        }
+      } else if (code >= 97 && code <= 122) {
+        code += 13;
+        if (code > 122) {
+          code -= 26;
+        }
+      }
+      Str += String.fromCharCode(code);
+    }
+    //
+    console.log(Str);
+  }
+
+  rot13("SERR CVMMN!");
+</script>
