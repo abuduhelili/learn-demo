@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  /*
+    555-555-5555
+    (555)555-5555
+    (555) 555-5555
+    555 555 5555
+    5555555555
+    1 555 555 5555
+    */
+  // (0511-4405222、021-87888822)：\d{3}-\d{8}|\d{4}-\d{7}
+  function telephoneCheck(str) {
+    let flag = false;
+    // 判断字符串中是否含有除了数字,-,(),空格以外的字符
+    let regex = /[^0-9-() ]/;
+
+    if (!regex.test(str)) {
+      console.log("1");
+      let regex1 = /\d{3}-\d{3}-\d{4}/;
+      let regex2 = /\(\d{3}\)\d{3}-\d{4}/;
+      let regex3 = /\(\d{3}\)\s\d{3}-\d{4}/;
+      let regex4 = /\(\d{3}\)\s\d{3}\s\d{4}/;
+      let regex5 = /\d{3}\s\d{3}\s\d{4}/;
+      let regex6 = /\d{10}/;
+      let regex7 = /^1\d{10}$/;
+      flag = regex1.test(str);
+      flag = flag || regex2.test(str);
+      flag = flag || regex3.test(str);
+      flag = flag || regex4.test(str);
+      flag = flag || regex5.test(str);
+      flag = flag || regex6.test(str);
+      flag = flag || regex7.test(str);
+    } else {
+      flag = false;
+    }
+
+    console.log(flag);
+    // return flag;
+  }
+
+  telephoneCheck("(555)555-5555");
+</script>
