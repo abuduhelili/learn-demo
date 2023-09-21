@@ -47,5 +47,4 @@ var romanToInt = function (s) {
     }
   }
   return sum;
-  // return
 };
