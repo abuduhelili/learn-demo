@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="w-50">
+      <div class="row col-8 border border-3">
+        <div class="ms-3 col">
+          <label class="form-label">省份</label>
+          <input class="form-control border border-3" type="text" id="pname" /><br />
+        </div>
+        <div class="col">
+          <label class="form-label">城市:</label>
+          <input class="form-control border border-3" type="text " id="cname" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <button class="btn btn-success align-self-center" id="getBtn">查询</button>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label">地区列表</label>
+        <ul class="myUl col-6 list-group border border-3">
+          xxxxx
+        </ul>
+      </div>
+    </div>
+
+    <!-- 
+        url: http://hmajax.itheima.net/api/area
+        查询参数： pname:省份,cname:城市
+     -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>
+    <script>
+      document.getElementById('getBtn').addEventListener('click', () => {
+        let pname = document.getElementById('pname').value;
+        let cname = document.getElementById('cname').value;
+
+        axios({
+          url: 'http://hmajax.itheima.net/api/area',
+          params: {
+            pname,
+            cname,
+          },
+        }).then((result) => {
+          console.log('1');
+          let list = result.data.list;
+          let myUl = document.querySelector('.myUl');
+          let All = list.map((item) => `<li calss = "list-group-item">${item}</li>`);
+          myUl.innerHTML = All.join('');
+        });
+      });
+    </script>
+  </body>
+</html>

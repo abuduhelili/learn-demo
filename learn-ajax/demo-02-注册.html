@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="col-md-3 border border-3">
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="用户名" name="name" />
+          </div>
+          <div class="col">
+            <input type="password" class="form-control" placeholder="密码" name="pswd" />
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-primary">注册</button>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>
+    <script>
+      /*
+      url: http://hmajax.itheima.net/api/
+      
+      参数:
+        username: 用户名 (中英文和数字，最少8位)
+        password: 密码 (最少6位)
+      
+      我的：
+        '我叫阿卜杜合力力' 
+        '2062454635'
+      */
+      document.querySelector('button').addEventListener('click', () => {
+        // let username = document.querySelector('input[name="name"]').value;
+        // let password = document.querySelector('input[name="pswd"]').value;
+        // console.log(username, password);
+
+        axios({
+          url: 'http://hmajax.itheima.net/api/register',
+          method: 'post',
+          data: {
+            username: '我叫阿卜杜合力力',
+            password: '2062454635',
+          },
+        })
+          .then((res) => {
+            // 成功
+            console.log(res);
+          })
+          .catch((err) => {
+            // 失败
+            console.log(err);
+            console.log(err.response.data.message);
+            alert(err.response.data.message);
+          });
+      });
+    </script>
+  </body>
+</html>
