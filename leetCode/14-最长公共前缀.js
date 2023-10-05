@@ -38,5 +38,4 @@ var longestCommonPrefix = function (strs) {
 
   console.log(res);
 };
-
 longestCommonPrefix(s);
