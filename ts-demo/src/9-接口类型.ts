@@ -71,4 +71,5 @@
       console.log('sleeping-----');
     },
   };
+  s1.sleep();
 }
