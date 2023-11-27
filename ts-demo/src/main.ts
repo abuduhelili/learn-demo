@@ -18,5 +18,6 @@
   // 简化泛型 ：可以不写<> ，可自动推断，为 字面量类型
   const res5 = get(123);
   const res6 = get('hello');
+
   const res7 = get(true);
 }
