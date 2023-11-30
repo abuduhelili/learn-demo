@@ -1,22 +1,20 @@
 {
-  // 泛型：
-  // 调用函数时来指定传入参数类型;类型由外部确定
+  // 泛型：类型约束
 
-  // <T>      声明泛型
-  // val:T    定义泛型
-
-  function get<T>(val: T) {
+  // 定义接口
+  interface ILength {
+    length: number;
+  }
+  // 添加约束(给泛型添加更高的约束)
+  function get<T extends ILength>(val: T) {
+    console.log(val.length);
     return val;
   }
 
-  const res1 = get<number>(123);
-  const res2 = get<string>('hello');
-  const res3 = get<boolean>(true);
-  // const res4 = get<string>(1)  // 报错
-
   //
-  // 简化泛型 ：可以不写<> ，可自动推断，为 字面量类型
-  const res5 = get(123);
-  const res6 = get('hello');
-  const res7 = get(true);
+  // 转换成数组：
+  // function get<T>(val: T[]) {
+  //   return val;
+  // }
+  // let res = get([1, 2, 3, 'aaa']);
 }
