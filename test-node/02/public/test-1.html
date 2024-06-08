@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div class="w-50">
+      <!-- 手风琴表单 -->
+      <div class="accordion col-6 accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+              ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+              quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+              it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+              aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+              sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+              ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+              quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+              it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+              aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+              sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+              ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+              quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+              it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+              excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+              aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+              sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 地区查询 -->
+      <div class="row col-6 border border-3">
+        <div class="ms-3 col">
+          <label class="form-label">省份</label>
+          <input class="form-control border border-3" type="text" id="pname" /><br />
+        </div>
+        <div class="col">
+          <label class="form-label">城市:</label>
+          <input class="form-control border border-3" type="text " id="cname" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <button class="btn btn-success align-self-center" id="getBtn">查询</button>
+        </div>
+      </div>
+      <!-- 查询结果 -->
+      <div class="col-6">
+        <label class="form-label">地区列表</label>
+        <ul class="myUl list-group border border-3"></ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // url: http://hmajax.itheima.net/api/area
+      // 查询参数： pname:省份,cname:城市
+      document.getElementById('getBtn').addEventListener('click', () => {
+        let pname = document.getElementById('pname').value;
+        let cname = document.getElementById('cname').value;
+
+        axios({
+          url: 'http://hmajax.itheima.net/api/area',
+          params: {
+            pname,
+            cname,
+          },
+        }).then(result => {
+          console.log('1');
+          let list = result.data.list;
+          let myUl = document.querySelector('.myUl');
+          let All = list.map(item => `<li calss = "list-group-item">${item}</li>`);
+          myUl.innerHTML = All.join('');
+        });
+      });
+    </script>
+  </body>
+</html>
